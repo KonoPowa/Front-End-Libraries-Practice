@@ -52,3 +52,52 @@
 <p class="text-3">Hello</p>
 <p class="text-4">Hello</p>
 <p class="text-5">Hello</p>
+
+
+
+
+
+
+
+
+
+
+/*@each to iterate through list*/
+
+<style type='text/sass'>
+@each $color in blue, black, red{
+  .#{$color}-bg {background-color: $color;}
+}
+
+
+  div {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>
+
+
+
+
+
+
+/*WHILE LOOP*/
+<style type='text/sass'>
+$x: 1;
+@while $x < 6{
+  .text-#{$x} {font-size: 15px * $x};
+  $x: $x + 1;
+}
+
+
+</style>
+
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
