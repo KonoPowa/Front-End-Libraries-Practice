@@ -203,3 +203,294 @@ class ResetPassword extends React.Component {
     );
   }
 };
+
+
+
+
+
+
+
+
+
+//React: Review Using Props with Stateless Functional Components***************
+class CampSite extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <Camper/>
+      </div>
+    );
+  }
+};
+// change code below this line
+
+
+const Camper = (props) => {
+  return (
+    <div>
+      { /* change code below this line */ }
+      <p>{props.name}</p>
+      { /* change code above this line */ }
+    </div>
+  );
+};
+Camper.defaultProps = {name: 'CamperBot'}
+Camper.propTypes = {name: PropTypes.string.isRequired}
+
+
+
+
+
+
+
+
+
+//React: Create a Stateful Component**************
+class StatefulComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    // initialize state here
+    this.state = {
+      name: "yakkya"
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+
+
+//React: Render State in the User Interface************
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    return (
+      <div>
+        { /* change code below this line */ }
+        <h1>{this.state.name}</h1>
+        { /* change code above this line */ }
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+
+//React: Render State in the User Interface Another Way*********************
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'freeCodeCamp'
+    }
+  }
+  render() {
+    // change code below this line
+    const name = this.state.name
+    // change code above this line
+    return (
+      <div>
+        { /* change code below this line */ }
+        <h1>{name}</h1>
+        { /* change code above this line */ }
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+//React: Set State with this.setState***************
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    // change code below this line
+    this.setState({
+      name: 'React Rocks!'
+    })
+    // change code above this line
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+
+
+//React: Bind 'this' to a Class Method*****************
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "Hello"
+    };
+    // change code below this line
+    this.handleClick = this.handleClick.bind(this)
+    // change code above this line
+  }
+  handleClick() {
+    this.setState({
+      text: "You clicked!"
+    });
+  }
+  render() {
+    return (
+      <div>
+        { /* change code below this line */ }
+        <button onClick = {this.handleClick}>Click Me</button>
+        { /* change code above this line */ }
+        <h1>{this.state.text}</h1>
+      </div>
+    );
+  }
+};
+
+
+
+
+
+
+
+
+
+
+//React: Use State to Toggle an Element*************
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: false
+    };
+    // change code below this line
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+    // change code above this line
+  }
+  // change code below this line
+  toggleVisibility() {
+    this.setState(state => {
+      if (state.visibility === true) {
+         return { visibility: false };
+       } else {
+         return { visibility: true };
+      }
+    });
+  }
+  // change code above this line
+  render() {
+    if (this.state.visibility) {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+          <h1>Now you see me!</h1>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button onClick={this.toggleVisibility}>Click Me</button>
+        </div>
+      );
+    }
+  }
+};
+
+
+
+
+
+
+
+
+//React: Write a Simple Counter*****************
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+    // change code below this line
+  this.increment = this.increment.bind(this)
+  this.decrement = this.decrement.bind(this)
+  this.reset = this.reset.bind(this)
+    // change code above this line
+  }
+  // change code below this line
+  increment(){
+    this.setState({
+      count: this.state.count + 1
+    })
+
+  }
+  decrement(){
+    this.setState({
+      count: this.state.count - 1
+    })
+
+  }
+  reset(){
+    this.setState({
+      count: 0
+    })
+
+  }
+  // change code above this line
+  render() {
+    return (
+      <div>
+        <button className='inc' onClick={this.increment}>Increment!</button>
+        <button className='dec' onClick={this.decrement}>Decrement!</button>
+        <button className='reset' onClick={this.reset}>Reset</button>
+        <h1>Current Count: {this.state.count}</h1>
+      </div>
+    );
+  }
+};
